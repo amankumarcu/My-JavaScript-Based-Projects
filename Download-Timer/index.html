@@ -1,1 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Progress (works with your JS)</title>
+  <style>
+    /* reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* full-page center */
+    html, body { height: 100%; }
+    body{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg,#FFD6D6 0%, #FFC4C4 100%);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      overflow: hidden; /* removes scrollbars */
+    }
+
+    /* outer card */
+    #outer-box{
+      width: min(92vw, 340px);
+      padding: 20px;
+      background: linear-gradient(180deg,#F35D7A, #EE6983);
+      border: 4px solid #850E35;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(133,14,53,0.18);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* vertical stack with equal gap */
+    #data-container{
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* heading */
+    #upper-text{
+      color: #FCF5EE;
+      font-size: clamp(18px, 3.6vw, 28px);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* track (visible background) */
+    #progress-track{
+      width: 100%;
+      height: 18px;
+      background: rgba(255,255,255,0.16);
+      border-radius: 999px;
+      padding: 2px;         /* gives inner bar breathing room */
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    /* THIS is the element your JS updates (width -> "xx%") */
+    #progress-bar{
+      width: 0%;            /* JS sets this */
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ffffff 0%, #fffef8 60%);
+      transition: width 140ms linear;
+      box-shadow: 0 8px 18px rgba(255,255,255,0.10) inset;
+    }
+
+    /* percent text */
+    #progress{
+      color: #FCF5EE;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      width: 100%;
+    }
+
+    @media (max-width: 360px){
+      #outer-box { padding: 14px; }
+      #upper-text { font-size: 20px; }
+      #progress { font-size: 13px; }
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="outer-box">
+    <div id="data-container">
+      <h3 id="upper-text">Downloading....</h3>
+
+      <!-- progress track + bar
+           Your JS expects #progress-bar to be the element whose width changes -->
+      <div id="progress-track">
+        <div id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+      </div>
+
+      <p id="progress">0%</p>
+    </div>
+  </div>
+
+  <!-- include your existing JS file (do not change the JS) -->
+  <script src="app.js"></script>
+</body>
+</html>
