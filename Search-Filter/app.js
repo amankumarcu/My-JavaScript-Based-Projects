@@ -1,7 +1,7 @@
 const users = [
     {
         name : "Aman Kumar",
-        url : "/Search-cards/images/msg.png",
+        url : "/images/msg.png",
         info : "I am a Software Developer"
     },
     {
