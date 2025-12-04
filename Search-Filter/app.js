@@ -1,7 +1,7 @@
 const users = [
     {
         name : "Aman Kumar",
-        url : "/images/msg.png",
+        url : "https://images.unsplash.com/photo-1764712754791-8627ebded3f6?q=80&w=990&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         info : "I am a Software Developer"
     },
     {
